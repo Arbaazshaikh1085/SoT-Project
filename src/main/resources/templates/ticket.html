@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Ticket</title>
+    </head>
+    <body>
+    <h1>Book a Ticket</h1>
+
+    <a th:href="@{/homepage}">Homepage</a>
+    <a th:href="@{/ticket}">Ticket</a>
+<!--    <a href="/contactus">Contact Us</a>-->
+    <a th:href="@{/login}">Logout</a>
+
+
+
+    <form action="/ticket" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="startStation">Start Station:</label>
+            <select id="startStation" name="startStation">
+                    <option th:each="station : ${stations}" th:value="${station}" th:text="${station}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label for="endStation">Destination Station:</label>
+            <select id="endStation" name="endStation">
+                <option th:each="station : ${stations}" th:value="${station}" th:text="${station}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label for="paymentType">Payment Type:</label>
+            <select id="paymentType" name="paymentType">
+                <option value="creditCard">Credit Card</option>
+                <option value="bankAccount">Bank Account</option>
+            </select>
+        </div>
+
+
+        <div>
+            <label for="date">Date of Journey</label>
+            <input type="date" id="date" name="date">
+        </div>
+
+        <div>
+            <button type="submit">Next</button>
+        </div>
+    </form>
+    <div>
+        <p th:text="${error}"></p>
+    </div>
+    </body>
+</html>

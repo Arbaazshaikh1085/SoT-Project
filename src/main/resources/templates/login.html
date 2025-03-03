@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+
+
+
+        <div>
+            <p>New User?</p>
+            <a th:href="@{/registration}">Register</a>
+        </div>
+<!--        <th:block th:if="${success}">-->
+<!--            <div class="alert alert-success" th:text="${success}"></div>-->
+<!--        </th:block>-->
+
+<!--        <th:block th:unless="${success}">-->
+<!--            <p>New User?</p>-->
+<!--            <a th:href="@{/registration}">Register</a>-->
+<!--        </th:block>-->
+    </form>
+    <div>
+        <p th:text="${error}"></p>
+    </div>
+    </body>
+</html>
