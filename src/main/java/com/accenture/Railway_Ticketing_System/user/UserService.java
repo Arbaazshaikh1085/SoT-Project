@@ -52,9 +52,74 @@ public class UserService {
             model.addAttribute("error", "username Taken, please try different username");
             return "registration";
         }
+        if(user.getUsername().isEmpty()){
+            System.out.println("Empty Username field");
+            model.addAttribute("error", "Empty Username field");
+            return "registration";
+        }
+        if(!user.getUsername().matches("^[a-zA-Z0-9_]+$")){
+            System.out.println("Username contain numbers or special characters");
+            model.addAttribute("error", "Username contain numbers or special characters only alphabets are valid");
+            return "registration";
+        }
 
-        userRepository.save(user);
-        model.addAttribute("success", "Registration successful! Please log in.");
-        return "redirect:/login";
+        if(user.getFirstName().isEmpty()){
+            System.out.println("Empty first Name field");
+            model.addAttribute("error", "Empty first name field");
+            return "registration";
+        }
+        if(!user.getFirstName().matches("[A-Za-z]+")){
+            System.out.println("Firstname contain numbers or special characters");
+            model.addAttribute("error", "First name contain numbers or special characters only alphabets are valid");
+            return "registration";
+        }
+
+        if(user.getLastName().isEmpty()){
+            System.out.println("Empty Last Name field");
+            model.addAttribute("error", "Empty last name field");
+            return "registration";
+        }
+        if(!user.getLastName().matches("[A-Za-z]+")){
+            System.out.println("last name contain numbers or special characters");
+            model.addAttribute("error", "Last name contain numbers or special characters only alphabets are valid");
+            return "registration";
+        }
+
+        if(!user.getEmail().matches(".+@.+\\.(com|in|jp)")){
+            System.out.println("Invalid email address");
+            model.addAttribute("error", "Invalid email address");
+            return "registration";
+        }
+
+        List<String> existingEmailUser = userRepository.findUserByEmail(user.getEmail());
+        System.out.println(existingEmailUser);
+        if(!existingEmailUser.isEmpty()){
+            System.out.println("Email address already exists");
+            model.addAttribute("error", "Email address already exists");
+            return "registration";
+        }
+
+        if(!(user.getContactNumber().length() == 10) || !(user.getContactNumber().matches("[0-9]+"))){
+            System.out.println("Invalid phone number");
+            model.addAttribute("error", "Invalid phone number");
+            return "registration";
+        }
+
+        if(user.getPassword().length() < 8 || user.getPassword().equals(user.getUsername()) || user.getPassword().equals(user.getFirstName())|| user.getPassword().equals(user.getLastName()) || !(user.getPassword().matches(".*[a-zA-z]+.*")) || !(user.getPassword().matches(".*[0-9]+.*")) || !(user.getPassword().matches(".*[@_\\.-]+.*"))){
+            System.out.println("Password should have least 8 characters with 1 alphabet 1 digit and 1 special character");
+            model.addAttribute("error", "Password should have least 8 characters with 1 alphabet 1 digit and 1 special character");
+            return "registration";
+        }
+
+
+        else{
+            userRepository.save(user);
+            model.addAttribute("success", "Registration successful! Please log in.");
+            return "redirect:/login";
+        }
+
+
     }
+
+
 }
