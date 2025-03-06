@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" th:href="@{static\css\homepage.csshomepage.css}">
+</head>
+<body>
+
+<div class="container">
+    <img src="images/logo.png" alt="Logo">
+    <h1>Homepage</h1>
+
+    <nav>
+        <a th:href="@{/homepage}">Homepage</a>
+        <a th:href="@{/ticket}">Ticket</a>
+        <a th:href="@{/login}">Logout</a>
+    </nav>
+</div>
+
+</body>
+</html>

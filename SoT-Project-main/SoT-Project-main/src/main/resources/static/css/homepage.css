@@ -1,0 +1,57 @@
+/* src/main/resources/static/css/homepage.css */
+
+/* General body styles */
+body {
+    background-color: #e6e6fa; /* Light purple background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Logo styles */
+img {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100px;
+}
+
+/* Header styles */
+h1 {
+    color: #333;
+    font-size: 3em; /* Enlarged font size */
+    margin: 20px 0;
+}
+
+/* Navigation styles */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
