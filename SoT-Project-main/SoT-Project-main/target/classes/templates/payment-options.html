@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment Options</title>
+    <link rel="stylesheet" th:href="@{/css/payment-options.css}">
+</head>
+<body>
+
+<div class="container">
+    <img src="images/logo.png" alt="Logo">
+    <h1>Choose Payment Method</h1>
+    <nav>
+        <a th:href="@{/credit-card}">Credit Card</a>
+        <a th:href="@{/bank-account}">Bank Account</a>
+    </nav>
+</div>
+
+</body>
+</html>
