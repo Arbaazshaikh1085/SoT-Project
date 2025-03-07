@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>Login</title>
+        <title>Admin Login</title>
     </head>
 
     <body>
-        <img src="images/logo.png" alt="Logo">
+        <img src="/images/logo.png" alt="Logo">
 
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
 
-        <form action="/login" method="post">
+        <form action="/login/admin" method="post">
 
             <div>
                 <label for="username">Username:</label>
@@ -27,12 +27,8 @@
             </div>
 
             <div>
-                <p>New User?</p>
-                <a th:href="@{/registration}">Register</a>
-            </div>
-
-            <div>
-                <a th:href="@{/login/admin}">Admin Login</a>
+                <p>Are you a user?</p>
+                <a th:href="@{/login}">User Login</a>
             </div>
 
         </form>
